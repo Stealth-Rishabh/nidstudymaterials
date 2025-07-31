@@ -91,7 +91,7 @@ try {
     $uniFields = array(
         'name' => urlencode($name),
         'phone' => urlencode($phone),
-        // 'email' => urlencode($email),
+        'email' => "",
         'city' => urlencode($city),
         'query' => urlencode($qualification . ' | Course: ' . $course),
         'http_referer' => urlencode($referrer),
