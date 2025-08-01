@@ -373,6 +373,7 @@
             background-color: #fff;
             padding: 60px 20px;
             min-height: 100vh;
+
         }
 
         .nid_books_container {
@@ -637,6 +638,319 @@
             opacity: 1;
         }
         /* End book details */
+
+        /* reasons why css */
+        
+        /* Main Container */
+        .brds_minimal_section {
+            padding: 3rem 0 4rem;
+            min-height: 100vh;
+            display: none;
+        }
+
+        .brds_minimal_container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        .brds_minimal_header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: brds_slide_down 1s ease-out;
+        }
+
+        .brds_minimal_title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .brds_minimal_divider {
+            width: 80px;
+            height: 4px;
+            background: #D73527;
+            margin: 0 auto;
+            border-radius: 2px;
+            animation: brds_pulse_divider 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes brds_slide_down {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes brds_pulse_divider {
+            0% { transform: scaleX(1); }
+            100% { transform: scaleX(1.2); }
+        }
+
+        /* List Container */
+        .brds_minimal_list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        /* List Item */
+        .brds_minimal_item {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(215, 53, 39, 0.08);
+            border: 1px solid rgba(215, 53, 39, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .brds_minimal_item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(215, 53, 39, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .brds_minimal_item:hover::before {
+            left: 100%;
+        }
+
+        .brds_minimal_item.brds_animate_in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .brds_minimal_item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(215, 53, 39, 0.15);
+            border-color: rgba(215, 53, 39, 0.2);
+        }
+
+        /* Item Header */
+        .brds_minimal_item_header {
+            background: #D73527;
+            padding: 1.8rem 2rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brds_minimal_item_header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .brds_minimal_item:hover .brds_minimal_item_header::after {
+            opacity: 1;
+            animation: brds_header_shine 0.6s ease-in-out;
+        }
+
+        @keyframes brds_header_shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .brds_minimal_icon_wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .brds_minimal_icon {
+            font-size: 1.4rem;
+            color: white !important;
+            transition: all 0.3s ease;
+        }
+
+        .brds_minimal_item:hover .brds_minimal_icon_wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .brds_minimal_item:hover .brds_minimal_icon {
+            transform: scale(1.1);
+        }
+
+        .brds_minimal_item_title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .brds_minimal_title {
+                font-size: 2rem;
+            }
+            
+            .brds_minimal_item_header {
+                padding: 1.5rem 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .brds_minimal_icon_wrapper {
+                margin-right: 0;
+                margin-bottom: 1rem;
+                width: 60px;
+                height: 60px;
+            }
+
+            .brds_minimal_icon {
+                font-size: 1.5rem;
+            }
+            
+            .brds_minimal_item_title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brds_minimal_container {
+                padding: 0 1rem;
+            }
+            .brds_minimal_section{
+                padding: 1rem 0 2rem;
+                display: block;
+            }
+            .brds_minimal_title {
+                font-size: 1.8rem;
+            }
+            .brds_minimal_header {
+                margin-bottom: 2rem;
+            }
+            
+            .brds_minimal_item_header {
+                padding: 1.3rem 1.2rem;
+            }
+            
+            .brds_minimal_item_title {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .brds_minimal_item:nth-child(1) { animation-delay: 0.1s; }
+        .brds_minimal_item:nth-child(2) { animation-delay: 0.2s; }
+        .brds_minimal_item:nth-child(3) { animation-delay: 0.3s; }
+        .brds_minimal_item:nth-child(4) { animation-delay: 0.4s; }
+        .brds_minimal_item:nth-child(5) { animation-delay: 0.5s; }
+        .brds_minimal_item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes brds_fade_in_up {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Elements */
+        .brds_floating_dot {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(215, 53, 39, 0.08);
+            animation: brds_float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .brds_floating_dot:nth-child(1) {
+            width: 50px;
+            height: 50px;
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .brds_floating_dot:nth-child(2) {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .brds_floating_dot:nth-child(3) {
+            width: 35px;
+            height: 35px;
+            top: 35%;
+            left: 5%;
+            animation-delay: 6s;
+        }
+
+        @keyframes brds_float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-12px) scale(1.05); }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus States */
+        .brds_minimal_item:focus {
+            outline: 3px solid #D73527;
+            outline-offset: 2px;
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            .brds_minimal_item {
+                border: 2px solid #D73527;
+            }
+            
+            .brds_minimal_item_header {
+                background: #000;
+            }
+        }
+
+        /* Active/Click State */
+        .brds_minimal_item:active {
+            transform: translateY(-2px);
+            transition: all 0.1s ease;
+        }
+        /* reasons why css end  */
     </style>
 </head>
 
@@ -701,7 +1015,7 @@
                     </div>
                 <div class="col-md-6 col-12" id="form">
                     <div class="banner-right text-center mx-auto ms-lg-auto me-lg-0 mw-">
-                        <h3>Admissions Open</h3>
+                        <h3>Order Now</h3>
                         <form method="post" action="brds_crm_api.php" enctype="multipart/form-data" id="brds_form">
                             <div class="col-12">
                                 <input type="text" name="Name" class="form-control shadow-none border-0" id="name"
@@ -771,7 +1085,7 @@
                                 } ?>" />
                                 <input type="hidden" name="orderid" value="1021" />
                                 <input type="hidden" name="sitename" value="NIDCOACHING" />
-                                <input type="submit" class="banner-form-btn" value="Apply Now" name="submit" />
+                                <input type="submit" class="banner-form-btn" value="Submit" name="submit" />
                             </div>
                         </form>
                     </div>
@@ -821,6 +1135,180 @@
     </div>
     </section>
     <!-- End NID Study Material (BDES) - Study Material Kit  -->
+
+<!-- reasons why mobile -->
+ <!-- Floating Background Elements -->
+ <div class="brds_floating_dot"></div>
+ <div class="brds_floating_dot"></div>
+ <div class="brds_floating_dot"></div>
+
+ <section class="brds_minimal_section">
+     <div class="brds_minimal_container">
+         <!-- Header -->
+         <div class="brds_minimal_header">
+             <h1 class="brds_minimal_title">Reasons to choose BRDS NID Study Material</h1>
+             <div class="brds_minimal_divider"></div>
+         </div>
+
+         <!-- Minimal List -->
+         <div class="brds_minimal_list">
+             
+             <!-- Item 1: Books -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-book-open brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">13 books for DAT & GAT preparation</h3>
+                 </div>
+             </div>
+
+             <!-- Item 2: Digital Resources -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-laptop-code brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">Resource link with useful eBooks and visuals</h3>
+                 </div>
+             </div>
+
+             <!-- Item 3: Expert Guidance -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-user-graduate brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">Expert's support and guidance</h3>
+                 </div>
+             </div>
+
+             <!-- Item 4: Doubt Solving -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-question-circle brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">Doubt Solving workshops</h3>
+                 </div>
+             </div>
+
+             <!-- Item 5: DAT Mains Kit -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-gift brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">Free DAT Mains coaching kit</h3>
+                 </div>
+             </div>
+
+             <!-- Item 6: Other Design Colleges -->
+             <div class="brds_minimal_item" tabindex="0">
+                 <div class="brds_minimal_item_header">
+                     <div class="brds_minimal_icon_wrapper">
+                         <i class="fas fa-university brds_minimal_icon"></i>
+                     </div>
+                     <h3 class="brds_minimal_item_title">Prepare for Other Design Colleges</h3>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+ </section>
+
+ <script>
+     // Intersection Observer for scroll animations
+     const observerOptions = {
+         threshold: 0.1,
+         rootMargin: '0px 0px -50px 0px'
+     };
+
+     const observer = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                 entry.target.classList.add('brds_animate_in');
+                 entry.target.style.animation = `brds_fade_in_up 0.8s ease-out forwards ${entry.target.style.animationDelay || '0s'}`;
+             }
+         });
+     }, observerOptions);
+
+     // Observe all list items
+     document.querySelectorAll('.brds_minimal_item').forEach((item, index) => {
+         item.style.animationDelay = `${index * 0.1}s`;
+         observer.observe(item);
+     });
+
+     // Add click ripple effect
+     document.querySelectorAll('.brds_minimal_item').forEach(item => {
+         item.addEventListener('click', function(e) {
+             const ripple = document.createElement('div');
+             const rect = this.getBoundingClientRect();
+             const size = Math.max(rect.width, rect.height);
+             const x = e.clientX - rect.left - size / 2;
+             const y = e.clientY - rect.top - size / 2;
+             
+             ripple.style.cssText = `
+                 position: absolute;
+                 width: ${size}px;
+                 height: ${size}px;
+                 left: ${x}px;
+                 top: ${y}px;
+                 background: radial-gradient(circle, rgba(215, 53, 39, 0.15) 0%, transparent 70%);
+                 border-radius: 50%;
+                 transform: scale(0);
+                 animation: ripple 0.6s linear;
+                 pointer-events: none;
+                 z-index: 1;
+             `;
+             
+             this.appendChild(ripple);
+             
+             setTimeout(() => {
+                 ripple.remove();
+             }, 600);
+         });
+     });
+
+     // Add ripple animation
+     const style = document.createElement('style');
+     style.textContent = `
+         @keyframes ripple {
+             to {
+                 transform: scale(4);
+                 opacity: 0;
+             }
+         }
+     `;
+     document.head.appendChild(style);
+
+     // Keyboard navigation
+     document.querySelectorAll('.brds_minimal_item').forEach(item => {
+         item.addEventListener('keydown', (e) => {
+             if (e.key === 'Enter' || e.key === ' ') {
+                 e.preventDefault();
+                 item.click();
+             }
+         });
+     });
+
+     // Smooth scroll behavior
+     document.documentElement.style.scrollBehavior = 'smooth';
+
+     // Subtle parallax effect for floating elements
+     window.addEventListener('scroll', () => {
+         const scrolled = window.pageYOffset;
+         const parallax = document.querySelectorAll('.brds_floating_dot');
+         const speed = 0.2;
+
+         parallax.forEach((element, index) => {
+             const yPos = -(scrolled * speed * (index + 1) * 0.15);
+             element.style.transform = `translateY(${yPos}px)`;
+         });
+     });
+ </script>
+ <!-- reasons why mobile end  -->
+
 
 
     <section class="body_exam">
@@ -917,6 +1405,7 @@
         </div>
       </section>
       
+
     <!-- Add Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Add Swiper JS -->
