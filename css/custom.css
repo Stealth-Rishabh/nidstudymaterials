@@ -1441,7 +1441,7 @@ section.entrance_exam {
   left: 0;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  background: #e74c3c;
   border-radius: 2px;
 }
 
@@ -2046,7 +2046,7 @@ section.entrance_exam {
   left: 0;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  background: #e74c3c;
   border-radius: 2px;
 }
 
