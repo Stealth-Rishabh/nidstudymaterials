@@ -12018,7 +12018,7 @@ header {
 }
 .header-left,
 header::after {
-  background-color: red;
+  background-color: #ff0000;
 }
 .banner,
 header {
