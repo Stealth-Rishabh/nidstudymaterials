@@ -1,5 +1,5 @@
 # robots.txt for https://nidstudymaterial.com/
-# Last updated: 2025-08-21
+# Last updated: 2025-09-15
 
 User-agent: *
 
